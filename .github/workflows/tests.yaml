@@ -37,9 +37,9 @@ jobs:
         run: make show
       - name: Run tests
         run: |
-          pytest -v --cov-config .coveragerc --cov=darkconf -l --tb=short --maxfail=1 tests/
-          coverage xml
-          coverage html
+          python -m pytest -v --cov-config .coveragerc --cov=darkconf -l --tb=short --maxfail=1 tests/
+          python -m coverage xml
+          python -m coverage html
       - name: Upload pytest test results
         uses: actions/upload-artifact@v3
         with:
