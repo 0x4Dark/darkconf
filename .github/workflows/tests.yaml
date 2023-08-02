@@ -25,14 +25,16 @@ jobs:
       - name: Configure poetry
         run: |
           python -m poetry config virtualenvs.in-project true
+      - name: Install dependencies
+        run: |
+          poetry install --with test
       - name: Cache the virtualenv
         uses: actions/cache@v2
         with:
           path: ./.venv
           key: ${{ runner.os }}-${{ matrix.python-version }}-venv-${{ hashFiles('**/poetry.lock') }}
-      - name: Install dependencies
-        run: |
-          python -m poetry install --with test
+      - name : Source into poetry
+        run: source .venv/bin/activate
       - name: Show environment
         run: make show
       - name: Run tests
