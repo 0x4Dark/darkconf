@@ -28,7 +28,10 @@ jobs:
       - name: Show environment
         run: make show
       - name: Run tests
-        run: make test
+        run: |
+          pytest -v --cov-config .coveragerc --cov=darkconf -l --tb=short --maxfail=1 tests/
+          coverage xml
+          coverage html
       - name: Upload pytest test results
         uses: actions/upload-artifact@v3
         with:
