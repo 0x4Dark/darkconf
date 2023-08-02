@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "darkconf"
+version = "0.1.0"
+description = "Simple config manager which is sufficient for my requirements"
+authors = ["Mark Heumüller <mark.heumueller@gmx.de>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "darkconf"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
+flake8 = "^6.1.0"
+black = "^23.7.0"
+isort = "^5.12.0"
+mypy = "^1.4.1"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.0"
+coverage = "^7.2.7"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
